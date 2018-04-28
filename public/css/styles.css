@@ -1,0 +1,756 @@
+html, body{
+    padding:0;
+    margin:0;
+}
+
+button,input, select, img{outline:0;}
+
+.bgimgg{
+    background:url(../images/bgimg-2.png);
+    background-repeat:no-repeat; position:absolute; top:0; left:0; width:100%; height:100%; z-index:2;
+}
+.bgimgg_after{
+    position:absolute; top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(49,0,64,0.8);
+    z-index:3;
+}
+
+/* End: Fonts */
+
+.skewed-bg{
+    background: #dadada;
+    /*#340040*/
+    padding: 224px 0;
+    transform:skew(0deg, 6deg);
+    margin-top: -80px;
+    overflow:hidden;
+}
+.top-bg{
+    transform:skew(0deg, -6deg);
+    background:url(../images/bgimg-2.jpg);
+    background-position:top 14% right;
+    background-size:cover;
+    background-repeat:no-repeat;
+    position:absolute;
+    top:80px;
+    left:0;
+    width:100%;
+    height:100%
+}
+
+body{background:#340040!important}
+
+.form-control{margin-top:4px;}
+
+
+.la-header{padding:15px 30px;}
+.la-main{position:relative; background:transparent; margin-top:140px;}
+.la-footer{padding:15px 30px; background:#340040; text-align:right; color:#fff; font-size:15px; line-height:21px}
+
+.la-main-bg{background:url(../images/background1.png); background-repeat:no-repeat; background-position:top center;background-size:cover; height:232px;}
+.la-main-container{background:#340040; position:relative; height:auto}
+.la-main-content{position:relative; height:auto; min-height:130px;}
+
+.la-container-fluid{width:100%; box-sizing:border-box; padding:15px; }
+
+
+.la-button-default{
+    min-width:200px;
+    min-height: 60px;
+    padding:10px 10px 10px 10px;
+    background:#3f0251;
+    color:#fff;
+    display:inline-block;
+    font-size:20px;
+    box-sizing:border-box;
+    border-radius:10px;
+    position:relative;
+    margin-left:52px;
+    margin-bottom:15px;
+    box-shadow: 3px 4px 11px #000;
+    cursor:pointer;
+
+}
+.la-button-default span{font-style:italic; font-size:24px;}
+.la-btn1{padding-left: 60px;
+    padding-right: 20px;
+    margin-top: 10px;
+    line-height: 27px;
+    margin-right: -15px;
+
+    font-size:30px}
+.la-btn1:before {
+    content: "";
+    display: block;
+    width: 68px;
+    height: 80px;
+    background: url(http://matchmkr.co/images/btnicon1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: -27px;
+    top: -4px;
+}
+.la-btn3 {
+    padding-left: 60px;
+    padding-right: 20px;
+    margin-top: 10px;
+    line-height: 27px;
+    margin-right: -15px;
+    margin-left:140px;
+    font-size:30px
+}
+.la-btn3:before {
+    content: "";
+    display: block;
+    width: 102px;
+    height: 80px;
+    background: url(http://matchmkr.co/images/btnicon2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: -36px;
+    top: -3px;
+}
+.la-btn2{padding-left:40px; padding-right:15px; margin-top:10px; text-align:center; line-height:30px; margin-right:-15px;  padding-top:18px;}
+.la-btn2:before{
+    content:"";
+    display:block;
+    width:70px;
+    height:65px;
+    background:url(http://matchmkr.co/images/btnicon2.png);
+    background-repeat:no-repeat;
+    background-size:contain;
+    position:absolute;
+    left:-27px;
+    top:-3px;
+}
+
+.la-btn4{padding-right:50px; padding-left:15px; margin-top:10px; text-align:center; line-height:30px;  padding-top:18px; margin-left:15px}
+.la-btn4:before{
+    content:"";
+    display:block;
+    width:70px;
+    height:65px;
+    background:url(http://matchmkr.co/images/btnicon2.png);
+    background-repeat:no-repeat;
+    background-size:contain;
+    position:absolute;
+    right:-27px;
+    top:-3px;
+}
+
+h1{font-weight:400; font-size:30px;}
+
+input[type="text"],input[type="email"],input[type="password"],textarea, select{padding-top:5px; padding-bottom:5px; padding-left:10px; padding-right:10px; border:1px solid #654070 !important; background:#dadada!important; width:100%;}
+input[type="text"], input[type="email"],input[type="password"], select{height:65px !important; width:100%}
+
+.wrapper{background:rgba(49,0,64,0.7); padding-top:30px; padding-bottom:15px;}
+
+.header2{background:#d7d7d7;}
+.content-block{border:1px solid rgba(255,255,255,0.6); background:rgba(0,0,0,0.4); padding-bottom:15px;}
+.custom-label{color:#fff; }
+.after-margin{margin-bottom:5px;}
+.before-margin{margin-top:10px;}
+.custom-text{color:#99919c; }
+h1{margin-bottom:30px;}
+.main-blk{max-width:738px; padding-bottom:30px; z-index:40; position:relative;}
+.profile-img{height:230px; padding:10px; border:1px solid #dadada; max-width:220px;}
+.profile-img-inner{background:#dadada; position:relative; height:100%; width:100%; text-align:center;}
+.profile-img-inner img{width:100% !important; height:100%;}
+h2.section-head{color:#fff; display:inline-block; position:relative; }
+h2.section-head:before{
+    content: "";
+    display: block;
+    border-bottom: 1px solid #857f87;
+    width: 100px;
+    position: absolute;
+    top: 17px;
+    left: -110px;
+}
+h2.section-head:after{
+    content: "";
+    display: block;
+    border-bottom: 1px solid #857f87;
+    width: 100px;
+    position: absolute;
+    top: 17px;
+    right: -110px;
+}
+.public-link-title{max-width:600px; color:#fff; margin:10px auto}
+.public-link{max-width:600px; margin:0 auto; color:#fff; padding-top:5px; padding-bottom:5px; word-wrap:break-word}
+.share-email{margin-bottom:-15px; color:#fff; border-right:1px solid #fff; height:50px; line-height:50px; background-image:url('../images/env1.png');background-repeat:no-repeat; background-position:25% center;}
+.share-sms{margin-bottom:-15px; color:#fff; height:50px; line-height:50px;  background-image:url('../images/sms.png');background-repeat:no-repeat; background-position:25% center;}
+
+.footer{color:#fff; border-top:1px solid #fff; padding-top:15px; text-align:right; margin-left:15px; margin-right:15px;}
+
+
+
+/* Media Query */
+@media screen and (max-width:768px){
+    .footer{margin-left:0; margin-right:0;}
+}
+
+@media screen and (max-width:640px){
+    .profile-img{width: 184px;
+        margin: 0 auto;
+        display: block;
+        float: none; margin-top:15px;}
+    .share-email{background-position:20% center;}
+    .share-sms{background-position:20% center;}
+    .btn2 .la-btn2{ margin-left:0;}
+    .btn4 .la-btn4{ margin-left:30px;}
+    .btn2 { width:97%; text-align:center;}
+    .btn4{ width:97%; text-align:center;}
+    .bt2 img{display:none;}
+}
+
+@media screen and (max-width:480px){
+    .share-email{background-position:5% center;}
+    .share-sms{background-position:5% center;}
+    h2.section-head:before{width:80px; left:-90px;}
+    h2.section-head:after{width:80px; right:-90px;}
+}
+
+@media screen and (max-width:360px){
+    h2.section-head:before{width:30px; left:-40px;}
+    h2.section-head:after{width:30px; right:-40px;}
+    .la-btn3{margin-left:60px;}
+
+    .top-bg{
+        top: 76px;
+        width: 102%;
+        height: 100%;
+        width: 340px !important;
+        height: 210px !important;
+    }
+}
+
+@media screen and (max-width:220px){
+    .la-btn3{margin-left:45px;}
+
+
+
+}
+
+@media screen and (max-width:320px) {
+    .la-btn3 {
+        font-size: 28px;
+        line-height: 10px;
+        padding-left: 30px;
+        padding-right: 38px;
+        top: 5px;
+    }
+    .top-bg{
+        top: 76px;
+        width: 102%;
+        height: 100%;
+        width: 340px !important;
+        height: 210px !important;
+    }
+}
+
+
+
+@media screen and (max-width: 640px)
+{
+    .btn-lg, .btn-group-lg > .btn
+    {
+        font-size: 14px !important;
+    }
+    .cross
+    {
+        float: right!important;
+        left: 5%!important;
+        margin-top: -20px!important;
+        position: relative!important;
+    }
+
+}
+@media screen and (max-width:320px)
+{
+    .matchmkr-logo
+    {
+
+        height:70px;
+        margin-left:0px;
+    }
+
+    .iam-btn
+    {
+        float: right;
+        margin-right:-5%;
+        margin-top: -60px;
+    }
+
+    .la-btn3::before {
+        background: rgba(0, 0, 0, 0) url("http://matchmkr.co/images/btnicon2.png") no-repeat scroll 0 0 / contain ;
+        content: "";
+        display: block;
+        height: 46px;
+        left: -18px;
+        position: absolute;
+        top: 6px;
+        width: 102px;
+    }
+
+    .la-btn3 {
+        font-size: 30px;
+        line-height: 18px;
+        padding-left: 28px;
+        padding-right: 20px;
+    }
+
+}
+
+@media screen and (min-width: 321px) and (max-width: 360px)
+{
+    .matchmkr-logo
+    {
+
+        height:70px;
+        margin-left:0px;
+    }
+
+    .iam-btn
+    {
+        float: right;
+        margin-right: 0px;
+        margin-top: -60px;
+    }
+
+    .la-btn3::before {
+        background: rgba(0, 0, 0, 0) url("http://matchmkr.co/images/btnicon2.png") no-repeat scroll 0 0 / contain ;
+        content: "";
+        display: block;
+        height: 46px;
+        left: -18px;
+        position: absolute;
+        top: 6px;
+        width: 102px;
+    }
+
+    .la-btn3 {
+        font-size: 30px;
+        line-height: 18px;
+        padding-left: 28px;
+        padding-right: 20px;
+    }
+
+}
+
+
+@media screen and (min-width: 361px) and (max-width: 375px)
+{
+    .matchmkr-logo
+    {
+
+        height:90px;
+        margin-left:0px;
+    }
+    .iam-btn
+    {
+        float: right;
+        margin-right: -5px;
+        margin-top: -73px;
+    }
+
+    .la-btn3::before {
+        background: rgba(0, 0, 0, 0) url("http://matchmkr.co/images/btnicon2.png") no-repeat scroll 0 0 / contain ;
+        content: "";
+        display: block;
+        height: 46px;
+        left: -18px;
+        position: absolute;
+        top: 6px;
+        width: 102px;
+    }
+
+    .la-btn3 {
+        font-size: 30px;
+        line-height: 18px;
+        padding-left: 28px;
+        padding-right: 20px;
+    }
+
+}
+
+
+@media screen and (min-width: 376px) and (max-width: 414px)
+{
+
+    .matchmkr-logo
+    {
+
+        height:110px;
+        margin-left:0px;
+    }
+
+    .iam-btn
+    {
+        float: right;
+        margin-right: 10px;
+        margin-top: -90px;
+    }
+
+    .la-btn3::before {
+        background: rgba(0, 0, 0, 0) url("http://matchmkr.co/images/btnicon2.png") no-repeat scroll 0 0 / contain ;
+        content: "";
+        display: block;
+        height: 46px;
+        left: -18px;
+        position: absolute;
+        top: 6px;
+        width: 102px;
+    }
+
+    .la-btn3 {
+        font-size: 30px;
+        line-height: 18px;
+        padding-left: 28px;
+        padding-right: 20px;
+    }
+
+}
+
+
+
+@media screen and (min-width: 415px) and (max-width: 460px)
+{
+
+    .iam-btn
+    {
+        float: right;
+        margin-right:9px;
+        margin-top: -94px;
+    }
+
+    .la-btn3::before {
+        background: rgba(0, 0, 0, 0) url("http://matchmkr.co/images/btnicon2.png") no-repeat scroll 0 0 / contain ;
+        content: "";
+        display: block;
+        height: 46px;
+        left: -18px;
+        position: absolute;
+        top: 6px;
+        width: 102px;
+    }
+
+    .la-btn3 {
+        font-size: 30px;
+        line-height: 18px;
+        padding-left: 28px;
+        padding-right: 20px;
+    }
+
+}
+
+
+
+@media screen and (min-width: 461px) and (max-width: 640px)
+{
+
+    .iam-btn
+    {
+
+        margin-right: 0px;
+        margin-top:35px;
+    }
+
+    .la-btn3::before {
+        background: rgba(0, 0, 0, 0) url("http://matchmkr.co/images/btnicon2.png") no-repeat scroll 0 0 / contain ;
+        content: "";
+        display: block;
+        height: 46px;
+        left: -18px;
+        position: absolute;
+        top: 6px;
+        width: 102px;
+    }
+
+    .la-btn3 {
+        font-size: 30px;
+        line-height: 18px;
+        padding-left: 28px;
+        padding-right: 20px;
+        margin-left: 10%;
+    }
+}
+
+@media screen and (min-width:968px)
+{
+    .matchmkr-logo
+    {
+
+        height:125px;
+        margin-left:30px;
+    }
+
+    .iam-btn
+    {
+        float:right;
+        margin-right:20px;
+        margin-top:30px;
+    }
+}
+.btn2 .la-bt2{ margin-right:20px; }
+@media only screen and (min-width: 950px) {
+    .btn2 .la-btn2{ margin-right: 0px; }
+}
+
+
+
+
+
+form.home-registration-form {
+    color: #fff;
+    padding: 50px;
+}
+.home-reg-field {
+    margin: 20px 0;
+}
+.home-reg-rewards label{
+    margin-right: 20px;
+}
+.lf_dropdown a#navbarDropdown {
+    background: #340040;
+    display:  inline-block;
+    color: #fff;
+}
+
+.nav-item.dropdown.lf_dropdown {
+    margin-top: 20px;
+}
+
+.skewed-bg {
+    overflow: visible;
+}
+
+.lf_dropdown .dropdown-menu.show {
+    background: #FC016E;
+    border-radius:  0;
+    color: #fff;
+}
+
+.lf_dropdown a.dropdown-item {
+    color: #fff;
+}
+
+.lf_dropdown a.dropdown-item:hover {
+    background:  none;
+}
+.wrapper {
+    padding-top: 0;
+}
+body{
+    font-family: 'Courgette', cursive;
+}
+.la-button-default input[type="submit"] {
+    background:  none;
+    border:  navajowhite;
+    color:  #fff;
+    z-index: 999;
+    cursor: pointer!important;
+}
+
+.la-button-default {
+    cursor: pointer!important;
+}
+.lf_form input,.lf_form textarea{
+    background: none!important;
+    color: #fff!important;
+    border-radius:  10px;
+    border: 2px solid #FC016E!important;
+}
+
+form.home-registration-form.lf_form {
+    text-align: center;
+}
+.home-reg-rewards h2 {
+    margin-bottom: 25px;
+}
+.profile_title h2 {
+    color:  #fff;
+    padding:  50px 0 20px;
+    border-bottom: 2px solid;
+}
+
+.lf_form input[type='radio'] {
+    -webkit-appearance:none;
+    width:20px;
+    height:20px;
+    border:1px solid #FC016E;
+    border-radius:50%;
+    outline:none;
+}
+
+.lf_form input[type='radio']:hover {
+    box-shadow:0 0 5px 0px orange inset;
+}
+
+.lf_form input[type='radio']:before {
+    content:'';
+    display:block;
+    width:60%;
+    height:60%;
+    margin: 20% auto;
+    border-radius:50%;
+}
+.lf_form input[type='radio']:checked:before {
+    background:#FC016E;
+}
+.lf_form input[type='radio'] { 
+    margin-right: 10px;
+}
+.lf_form  {
+    color: #fff;
+}
+.lf_form label.radio-inline {
+    margin-right: 25px;
+}
+
+.lf_form input {margin: 20px 0;}
+.profile_links ul {
+    margin:  0;
+    padding:  0;
+    background: #FC016E;
+    color:  #fff;
+    list-style: none;
+}
+
+.profile_picture {
+    margin: 50px 0;
+}
+
+.profile_links li {
+}
+
+.profile_links a {
+    padding: 10px;
+    display:  block;
+    text-decoration:  none;
+    color: #fff;
+}
+
+.profile_links a:hover {
+    background: #3F0251;
+}
+.lf_form  p {
+    min-height: 65px;
+    line-height:  65px;
+    border: 2px solid #FC016E;
+    padding-left:  10px;
+    border-radius: 10px;
+}
+.show_profile_info h2 {
+    color:  #fff;
+    margin: 20px 0;
+}
+
+.show_profile_info h2 strong {
+    margin-right: 20px;
+    border-bottom: 1px solid;
+}
+.more_user_info {
+    color:  #fff;
+    margin: 20px 0;
+}
+.profile_picture img {
+    width: 300px;
+    height: 300px;
+}
+
+.profile_picture {
+    text-align: center;
+}
+
+.profile_picture input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    cursor: pointer;
+}
+.profile_picture form p.upload-text{
+    display: none;
+}
+.profile_picture form:hover p.upload-text {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.5);
+    line-height: 300px;
+    color: #fff;
+}
+.profile_picture {
+    position: relative;
+}
+.profile_picture input[type="submit"] {
+    z-index:  9999;
+    position:  relative;
+    background:  #FC016E;
+    border:  none;
+    color:  #fff;
+    padding:  10px 20px;
+    margin:  10px 0;
+    cursor: pointer;
+}
+.lf_pink_button {
+    background:  #FC016E;
+    border:  none;
+    color:  #fff;
+    padding:  10px 20px;
+    margin:  10px 0;
+    cursor: pointer;
+}
+
+.col-md-12.content-block.public-link {
+    margin:  20px 0;
+    width:  100%;
+    max-width: 100%;
+}
+
+.row.public-link-title {
+    margin:  0;
+    padding: 0;
+}
+.lf_tab li a {
+    color:  #fff;
+    text-decoration:  none;
+    padding:  10px;
+    display:  block;
+}
+.lf_tab li {
+    width:  50%;
+    text-align:  center;
+    border: 1px solid #fff;
+}
+.lf_tab .col-md-12 {
+    border:  1px solid #fff;
+    background:  #1D0026;
+    padding: 0;
+}
+.lf_tab .tab-content {
+    padding: 0 10px;
+}
+.public-link a {
+    color:  #fff;
+    padding: 10px;
+    display: block;
+    border:  1px solid;
+    margin-bottom: 10px;
+}
+a.share-btn {
+    background:  #55C290;
+    display:  inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    float:  right;
+    font-size: 20px;
+}
