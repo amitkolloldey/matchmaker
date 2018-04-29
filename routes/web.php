@@ -14,8 +14,11 @@
 Route::get( '/', 'front\HomeController@showregform' );
 Route::post( '/sendregister', 'front\HomeController@register' )->name( 'front.register' );
 Route::get( '/user/activate/{token}', 'front\HomeController@activateuser' )->name( 'user.activate' );
-Route::get( '/admin/matchmaker/user/{id}', 'back\MatchMaker@view' )->name( 'admin.matchmaker' );
-Route::get( '/admin/matchmaker/request/{id}', 'back\MatchMaker@requestMatching' )->name( 'admin.matchmaker.request' );
+
+Route::get( '/admin/matchmaker/create', 'back\MatchMaker@create' )->name( 'admin.matchmaker.create' );
+Route::post( '/admin/matchmaker/store', 'back\MatchMaker@store' )->name( 'admin.matchmaker.store' );
+Route::post( '/image/upload', 'UploadImage@uploadThumb' )->name( 'image.upload' );
+//Route::get( '/admin/matchmaker/request/{id}', 'back\MatchMaker@requestMatching' )->name( 'admin.matchmaker.request' );
 
 
 Route::group( [ 'prefix' => 'user' ], function () {
