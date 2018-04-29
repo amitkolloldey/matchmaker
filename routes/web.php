@@ -16,7 +16,7 @@ Route::post('/sendregister', 'front\HomeController@register')->name('front.regis
 Route::get('/user/activate/{token}', 'front\HomeController@activateuser')->name('user.activate');
 
 
-Route::group(['middleware' => 'userauth','prefix' => 'user'], function () {
+Route::group(['middleware' => 'userauth'], function () {
     Route::get('/profile/{id}', 'front\UserProfileController@profile')->name('user.profile');
     Route::post('/profile/update/{id}', 'front\UserProfileController@update')->name('user.profile.update');
     Route::get('/profile/show/{id}', 'front\UserProfileController@show')->name('user.profile.show');
@@ -25,6 +25,15 @@ Route::group(['middleware' => 'userauth','prefix' => 'user'], function () {
     Route::post('/profile/password/{id}', 'front\UserProfileController@passwordchange')->name('profile.password.change');
     Route::get('/profile/public/share/{id}', 'front\UserProfileController@shareprofile')->name('profile.share');
 });
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('admin/login', 'admin\AdminHomeController@login')->name('admin.login');
+});
+Route::group(['middleware' => 'adminauth'], function () {
+    Route::get('admin/dashboard', 'admin\AdminHomeController@index')->name('admin.home');
+});
+
+
 Auth::routes();
 
 

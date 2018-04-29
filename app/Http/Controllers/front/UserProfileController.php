@@ -33,6 +33,7 @@ class UserProfileController extends Controller
     public function profileimage (ProfileImageRequest $request,$id)
     {
         $user_data = $request->all();
+        $user = User::findOrFail($id);
         if(isset($user_data['image']) ){
             $photo =  $user_data['image'];
             $photo_name =  time().$photo->getClientOriginalName();
