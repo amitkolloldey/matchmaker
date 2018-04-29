@@ -11,20 +11,22 @@
 |
 */
 
-Route::get('/', 'front\HomeController@showregform');
-Route::post('/sendregister', 'front\HomeController@register')->name('front.register');
-Route::get('/user/activate/{token}', 'front\HomeController@activateuser')->name('user.activate');
+Route::get( '/', 'front\HomeController@showregform' );
+Route::post( '/sendregister', 'front\HomeController@register' )->name( 'front.register' );
+Route::get( '/user/activate/{token}', 'front\HomeController@activateuser' )->name( 'user.activate' );
+Route::get( '/admin/matchmaker/user/{id}', 'back\MatchMaker@view' )->name( 'admin.matchmaker' );
+Route::get( '/admin/matchmaker/request/{id}', 'back\MatchMaker@requestMatching' )->name( 'admin.matchmaker.request' );
 
 
-Route::group(['prefix' => 'user'], function () {
-    Route::get('/profile/{id}', 'front\UserProfileController@profile')->name('user.profile');
-    Route::post('/profile/update/{id}', 'front\UserProfileController@update')->name('user.profile.update');
-    Route::get('/profile/show/{id}', 'front\UserProfileController@show')->name('user.profile.show');
-    Route::post('/profile/image/{id}', 'front\UserProfileController@profileimage')->name('profile.image.post');
-    Route::get('/profile/user/changepassword/{id}', 'front\UserProfileController@passwordchangeform')->name('password.change');
-    Route::post('/profile/password/{id}', 'front\UserProfileController@passwordchange')->name('profile.password.change');
-    Route::get('/profile/public/share/{id}', 'front\UserProfileController@shareprofile')->name('profile.share');
-});
+Route::group( [ 'prefix' => 'user' ], function () {
+	Route::get( '/profile/{id}', 'front\UserProfileController@profile' )->name( 'user.profile' );
+	Route::post( '/profile/update/{id}', 'front\UserProfileController@update' )->name( 'user.profile.update' );
+	Route::get( '/profile/show/{id}', 'front\UserProfileController@show' )->name( 'user.profile.show' );
+	Route::post( '/profile/image/{id}', 'front\UserProfileController@profileimage' )->name( 'profile.image.post' );
+	Route::get( '/profile/user/changepassword/{id}', 'front\UserProfileController@passwordchangeform' )->name( 'password.change' );
+	Route::post( '/profile/password/{id}', 'front\UserProfileController@passwordchange' )->name( 'profile.password.change' );
+	Route::get( '/profile/public/share/{id}', 'front\UserProfileController@shareprofile' )->name( 'profile.share' );
+} );
 Auth::routes();
 
 
