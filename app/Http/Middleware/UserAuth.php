@@ -16,7 +16,12 @@ class UserAuth
      */
     public function handle($request, Closure $next)
     {
-            return $next($request); // They're the owner, lets continue...
+        if(Auth::check()){ 
+            if($request->id == Auth::user()->id){
+                return $next($request);
+            }
+        }
+          return redirect('/login');
 
     }
 }

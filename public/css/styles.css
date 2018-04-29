@@ -754,3 +754,11 @@ a.share-btn {
     float:  right;
     font-size: 20px;
 }
+.la-btn2 button {
+    background:  none;
+    color:  #fff;
+    border: none;
+    display:  block;
+    width:  100%;
+    cursor: pointer;
+}

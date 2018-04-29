@@ -15,9 +15,6 @@ class UserProfileController extends Controller
 
     public function profile($id)
     {
-        if(Auth::user()->id != $id)  {
-            return redirect('/login');
-        }
         $user = User::findOrFail($id);
         return view('front.profile',compact('user'));
     }
@@ -26,9 +23,6 @@ class UserProfileController extends Controller
 
     public function update(ProfileUpdateRequest $request,$id)
     {
-        if(Auth::user()->id != $id)  {
-            return redirect('/login');
-        }
         $user = User::findOrFail($id);
         $user->update($request->all());
         return redirect(route('user.profile',$user->id))->with('profile_update_success','Your Profile Updated');
@@ -38,9 +32,6 @@ class UserProfileController extends Controller
 
     public function profileimage (ProfileImageRequest $request,$id)
     {
-        if(Auth::user()->id != $id)  {
-            return redirect('/login');
-        }
         $user_data = $request->all();
         if(isset($user_data['image']) ){
             $photo =  $user_data['image'];
@@ -67,9 +58,6 @@ class UserProfileController extends Controller
 
     public function passwordchangeform($id)
     {
-        if(Auth::user()->id != $id)  {
-            return redirect('/login');
-        }
         $user = User::findOrFail(Auth::user()->id);
         return view('front.profileresetpass',compact('user'));
     }
@@ -78,9 +66,6 @@ class UserProfileController extends Controller
 
     public function passwordchange(PasswordChangeRequest $request,$id)
     {
-        if(Auth::user()->id != $id)  {
-            return redirect('/login');
-        }
         $password = bcrypt($request->password);
         $user = User::findOrFail($id);
         $user->update(['password' => $password]);
@@ -90,9 +75,6 @@ class UserProfileController extends Controller
 
     public function shareprofile($id)
     {
-        if(Auth::user()->id != $id)  {
-            return redirect('/login');
-        }
         $user = User::findOrFail($id);
         return view('front.profileshare',compact('user'));
     }

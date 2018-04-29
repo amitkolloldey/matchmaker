@@ -58,7 +58,7 @@
                             </a></h4></div>
                     <div class="col-md-4" >
                         <div class="la-button-default la-btn2 iam-btn">
-                            <input type="submit" value="{{ __('Login') }}">
+                            <button type="submit">{{ __('Login') }}</button>
                         </div>
                     </div>
                     <div class="col-md-4" >

@@ -16,7 +16,7 @@ Route::post('/sendregister', 'front\HomeController@register')->name('front.regis
 Route::get('/user/activate/{token}', 'front\HomeController@activateuser')->name('user.activate');
 
 
-Route::group(['prefix' => 'user'], function () {
+Route::group(['middleware' => 'userauth','prefix' => 'user'], function () {
     Route::get('/profile/{id}', 'front\UserProfileController@profile')->name('user.profile');
     Route::post('/profile/update/{id}', 'front\UserProfileController@update')->name('user.profile.update');
     Route::get('/profile/show/{id}', 'front\UserProfileController@show')->name('user.profile.show');

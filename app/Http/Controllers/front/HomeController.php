@@ -36,12 +36,11 @@ class HomeController extends Controller
         $activateuser = ActivationCode::where('token', $token)->first();
         if (isset($activateuser)) {
             $user = $activateuser->user;
-            if ($user->status == 0) {
-                Auth::loginUsingId($activateuser->user->id);
+            if($user->password == NULL){
                 $activateuser->user->status = 1;
                 $activateuser->user->save();
-                return redirect(route('user.profile',$activateuser->user->id))->with('success_activate_msg','Your account has been activated.');
-            } else {
+                return redirect('/password/reset');
+            }  else {
                 Auth::logout();
                 $status = "Your are already verified. You can now login.";
                 return redirect('/login')->with('status', $status);

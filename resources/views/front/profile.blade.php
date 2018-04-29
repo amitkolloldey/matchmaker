@@ -134,7 +134,7 @@
                             </div>
                             <div class="col-md-12" >
                                     <div class="la-button-default la-btn2 iam-btn" style="">
-                                        <input type="submit" value="Update Profile">
+                                        <button type="submit">{{ __('Update Profile') }}</button>
                                     </div>
                             </div>
 
