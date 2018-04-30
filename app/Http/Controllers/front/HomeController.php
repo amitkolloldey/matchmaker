@@ -11,10 +11,15 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
+
+
     public function showregform()
     {
         return view('front.home');
     }
+
+
+
 
     public function register(HomeRegisterRequest $request)
     {
@@ -31,12 +36,13 @@ class HomeController extends Controller
         return redirect('/')->with('success_msg', 'Please check email to activate your profile.');
     }
 
+
+
     public function activateuser($token)
     {
         $activateuser = ActivationCode::where('token', $token)->first();
         if (isset($activateuser)) {
-            $user = $activateuser->user;
-            if($user->password == NULL){
+            if($activateuser->user->status == NULL){
                 $activateuser->user->status = 1;
                 $activateuser->user->save();
                 return redirect('/password/reset');

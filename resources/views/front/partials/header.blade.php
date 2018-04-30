@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/styles.css')}}"/>
     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+
 </head>
 <body>
 

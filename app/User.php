@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','rewards','status','preferances','age','other','public_visibility','image','gender'
+        'name', 'email', 'password','rewards','status','preferances','age','other','public_visibility','image','gender','activation_id'
     ];
 
     /**
@@ -28,24 +28,24 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+
     public function role(){
-        return $this->hasOne('App\Role');
+        return $this->belongsTo('App\Role','role_id');
     }
+
+
+
     public function activation_code(){
         return $this->hasOne('App\ActivationCode');
     }
+
+
+
     public function checkstatus(){
         if($this->status){
             return true;
         }
         return false;
     }
-    public function check_visibility(){
-        if($this->public_visibility){
-            return true;
-        }
-        return false;
-    }
-
-
 }

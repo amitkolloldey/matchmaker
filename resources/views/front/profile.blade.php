@@ -137,7 +137,6 @@
                                         <button type="submit">{{ __('Update Profile') }}</button>
                                     </div>
                             </div>
-
                         </form>
                     </div>
                 </div>
