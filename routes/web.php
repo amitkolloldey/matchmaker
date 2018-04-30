@@ -17,6 +17,9 @@ Route::get( '/user/activate/{token}', 'front\HomeController@activateuser' )->nam
 
 Route::get( '/admin/matchmaker/create', 'back\MatchMaker@create' )->name( 'admin.matchmaker.create' );
 Route::post( '/admin/matchmaker/store', 'back\MatchMaker@store' )->name( 'admin.matchmaker.store' );
+Route::get( '/admin/matchmaker/show/{id}', 'back\MatchMaker@show' )->name( 'admin.matchmaker.show' );
+Route::get( '/admin/matchmaker/edit/{id}', 'back\MatchMaker@edit' )->name( 'admin.matchmaker.edit' );
+Route::post( '/admin/matchmaker/update/{id}', 'back\MatchMaker@update' )->name( 'admin.matchmaker.update' );
 Route::post( '/image/upload', 'UploadImage@uploadThumb' )->name( 'image.upload' );
 //Route::get( '/admin/matchmaker/request/{id}', 'back\MatchMaker@requestMatching' )->name( 'admin.matchmaker.request' );
 

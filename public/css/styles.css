@@ -1000,15 +1000,48 @@ a.share-btn {
     float: right;
     font-size: 20px;
 }
-.dropzone{
+
+.dropzone {
     text-align: center;
     border: 1px solid #FC016E;
     border-radius: 4px;
     margin: 20px;
     padding: 5px;
 }
+
 #post-thumb-prev {
     max-height: 200px;
     max-width: 300px;
     width: auto;
+}
+
+.mm_image {
+    max-width: 300px;
+    max-height: 400px;
+}
+
+.mm_image > img {
+    max-height: 200px;
+    max-width: 300px;
+    width: auto;
+}
+
+.edit_profile {
+    border: 1px solid #FC016E;
+    border-radius: 4px;
+    padding: 10px;
+    float: right;
+}
+
+.info_field {
+    border: 1px solid #FC016E;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.info_field > p {
+    text-transform: uppercase;
+    color: white;
+    font-size: 2em;
 }

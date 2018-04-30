@@ -64,7 +64,13 @@ class MatchMaker extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show( $id ) {
-		//
+		if ( isset( $id ) ) {
+			$mm_user = \App\MatchMaker::findOrFail( $id );
+
+			return view( 'front.matchmaker_view' )->with( 'user', $mm_user );
+		} else {
+			//redirect to somewhere else
+		}
 	}
 
 	/**
@@ -75,7 +81,13 @@ class MatchMaker extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit( $id ) {
-		//
+		if ( isset( $id ) ) {
+			$mm_user = \App\MatchMaker::findOrFail( $id );
+
+			return view( 'front.matchmaker_edit' )->with( 'user', $mm_user );
+		} else {
+			//redirect to somewhere else
+		}
 	}
 
 	/**
@@ -87,7 +99,29 @@ class MatchMaker extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function update( Request $request, $id ) {
-		//
+		$data               = $request->all();
+		$mm_user            = \App\MatchMaker::findOrFail( $id );
+
+		$name               = $data['name'];
+		$email              = $data['email'];
+		$image              = $data['thumb'];
+		$password_1         = $data['password_1'];
+		$password_2         = $data['password_2'];
+
+		$arrayData          = array();
+		$arrayData['name']  = $name;
+		$arrayData['email'] = $email;
+		if ( isset( $image ) ) {
+			$arrayData['image'] = $image;
+		}
+		if ( isset( $password_1 ) && isset( $password_2 ) ) {
+			$arrayData['password'] = $password_1;
+		}
+
+		$mm_user->update( $arrayData );
+
+
+		return redirect( route( 'admin.matchmaker.show', $id ) );
 	}
 
 	/**
