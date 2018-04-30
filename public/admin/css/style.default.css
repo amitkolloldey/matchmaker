@@ -3337,3 +3337,72 @@ pre code {
   background: #2d3035;
   border-color: #34373d;
 }
+
+/* My custom CSS */
+
+.lf_table select {
+  -webkit-appearance:  none;
+  -moz-appearance: none;
+  background:  none;
+  color:  #ddd;
+  border: 1px solid #D44658;
+  padding: 0 20px;
+}
+
+
+div#lf_table_filter input {
+  background:  no-repeat;
+  border: 1px solid #D44658;
+}
+
+div#lf_table_length {
+  width:  50%;
+  float: left;
+}
+
+div#lf_table_filter {
+  width:  50%;
+  float:  right;
+  text-align: right;
+}
+.paginate_button {
+  padding:  10px;
+  background:  #D44658;
+  margin:  0 5px;
+  color: #fff;
+}
+
+.paginate_button:hover {
+  color:  #fff;
+  text-decoration: none;
+}
+.paginate_button {
+  padding:  10px;
+  background:  #D44658;
+  margin:  0 5px;
+  color: #fff;
+}
+
+
+.paginate_button:hover {
+  color:  #fff;
+  text-decoration: none;
+}
+
+div#lf_table_paginate {
+  float: right;
+}
+form.lf_delete_form {
+  display: inline-block;
+}
+.lf_user_info h2 {
+  margin:  20px 0;
+  font-size: 20px;
+  font-weight:  normal;
+  color: #eee;
+}
+
+.lf_user_info h2 strong {
+  color: #eee;
+
+}

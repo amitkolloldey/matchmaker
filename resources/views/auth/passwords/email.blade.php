@@ -8,6 +8,11 @@
                 <form method="POST" action="{{ route('password.email') }}" class="row home-registration-form lf_form">
                     @csrf
                     <div class="col-md-12">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                         @if(count($errors)>0)
                             <div class="errors">
                                 @foreach($errors->all() as $error)

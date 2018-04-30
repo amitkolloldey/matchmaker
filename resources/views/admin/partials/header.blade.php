@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <!-- Font Awesome CSS-->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="{{asset('admin/css/font.css')}}">
     <!-- Google fonts - Muli-->
@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{asset('admin/css/style.default.css')}}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{asset('admin/css/custom.css')}}">
+    @yield('styles')
 </head>
 <body>
 <header class="header">
@@ -39,7 +40,14 @@
                 <!-- Sidebar Toggle Btn-->
                 <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
             </div>
-
+            <div class="right-menu list-inline no-margin-bottom">
+                <div class="list-inline-item logout">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        <button onclick='return confirm("Are You Sure Want To Logout?")
+' class="btn btn-dark">Logout <i class="fa fa-sign-out"></i></button>
+                        {{ csrf_field() }}
+                    </form>
+            </div>
         </div>
     </nav>
 </header>

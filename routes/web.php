@@ -29,8 +29,11 @@ Route::group(['middleware' => 'userauth'], function () {
 Route::group(['middleware' => 'guest'], function () {
     Route::get('admin/login', 'admin\AdminHomeController@login')->name('admin.login');
 });
+
 Route::group(['middleware' => 'adminauth'], function () {
     Route::get('admin/dashboard', 'admin\AdminHomeController@index')->name('admin.home');
+    Route::resource('/admin/roles','admin\AdminRolesController');
+    Route::resource('/admin/users','admin\AdminUsersController');
 });
 
 

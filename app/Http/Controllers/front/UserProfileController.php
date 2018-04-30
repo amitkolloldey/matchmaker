@@ -15,6 +15,9 @@ class UserProfileController extends Controller
 
     public function profile($id)
     {
+        if(Auth::check() && Auth::user()->role_id == 1){
+            return redirect('admin/dashboard');
+        }
         $user = User::findOrFail($id);
         return view('front.profile',compact('user'));
     }
@@ -59,7 +62,7 @@ class UserProfileController extends Controller
 
     public function passwordchangeform($id)
     {
-        $user = User::findOrFail(Auth::user()->id);
+        $user = User::findOrFail($id);
         return view('front.profileresetpass',compact('user'));
     }
 
@@ -72,6 +75,7 @@ class UserProfileController extends Controller
         $user->update(['password' => $password]);
         return redirect(route('user.profile',$user->id))->with('password_update_success','Your Password Updated Successfully.');
     }
+
 
 
     public function shareprofile($id)
