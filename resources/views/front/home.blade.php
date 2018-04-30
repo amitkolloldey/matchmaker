@@ -49,7 +49,7 @@
                     <div class="col-md-4" ></div>
                     <div class="la-button-default la-btn2 iam-btn
                      col-md-4" >
-                        <input type="submit" value="Create Profile">
+                            <button type="submit">Create</button>
                     </div>
                     <div class="col-md-4" >
                     </div>

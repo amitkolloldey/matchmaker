@@ -34,7 +34,7 @@
                     <div class="col-md-4" ></div>
                     <div class="la-button-default la-btn2 iam-btn
                      col-md-4" >
-                        <input type="submit" value="{{ __('Reset Password') }}">
+                        <button type="submit">{{ __('Set Password') }}</button>
                     </div>
                 </form>
             </div>

@@ -24,7 +24,13 @@ class ProfileImageRequest extends FormRequest
     public function rules()
     {
         return [
-            //'image' => 'dimensions:min_width=300'
+            'image' => 'required'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'image.required' => 'Please Select An Image.'
         ];
     }
 }
