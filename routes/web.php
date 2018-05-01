@@ -15,11 +15,14 @@ Route::get( '/', 'front\HomeController@showregform' );
 Route::post( '/sendregister', 'front\HomeController@register' )->name( 'front.register' );
 Route::get( '/user/activate/{token}', 'front\HomeController@activateuser' )->name( 'user.activate' );
 
-Route::get( '/admin/matchmaker/create', 'back\MatchMaker@create' )->name( 'admin.matchmaker.create' );
-Route::post( '/admin/matchmaker/store', 'back\MatchMaker@store' )->name( 'admin.matchmaker.store' );
-Route::get( '/admin/matchmaker/show/{id}', 'back\MatchMaker@show' )->name( 'admin.matchmaker.show' );
-Route::get( '/admin/matchmaker/edit/{id}', 'back\MatchMaker@edit' )->name( 'admin.matchmaker.edit' );
-Route::post( '/admin/matchmaker/update/{id}', 'back\MatchMaker@update' )->name( 'admin.matchmaker.update' );
+Route::get( '/matchmaker/create', 'back\MatchMaker@create' )->name( 'matchmaker.create' );
+Route::post( '/matchmaker/store', 'back\MatchMaker@store' )->name( 'matchmaker.store' );
+Route::get( '/matchmaker/profile/{id}', 'back\MatchMaker@show' )->name( 'matchmaker.profile' );
+Route::get( '/matchmaker/edit/{id}', 'back\MatchMaker@edit' )->name( 'matchmaker.edit' );
+Route::post( '/matchmaker/update/{id}', 'back\MatchMaker@update' )->name( 'matchmaker.update' );
+Route::get( '/matchmaker/compare/{id}/{compare_id?}', 'back\CompareController@compareTo' )->name( 'matchmaker.compare' );
+Route::post( '/matchmaker/getusers', 'back\CompareController@getUsers' )->name( 'matchmaker.users' );
+Route::post( '/matchmaker/getuser', 'back\CompareController@getUser' )->name( 'matchmaker.user' );
 Route::post( '/image/upload', 'UploadImage@uploadThumb' )->name( 'image.upload' );
 //Route::get( '/admin/matchmaker/request/{id}', 'back\MatchMaker@requestMatching' )->name( 'admin.matchmaker.request' );
 

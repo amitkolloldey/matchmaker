@@ -5,7 +5,7 @@
         <div class="row ">
             <div class="col-lg-6 col-sm-12 col-md-8 col-lg-push-3 col-md-push-2">
 
-                <form id="mm_profile_form" action="{{route('admin.matchmaker.update',$user->id)}}" method="post"
+                <form id="mm_profile_form" action="{{route('matchmaker.update',$user->id)}}" method="post"
                       class="row lf_form">
 
                     <div class="profile_pic_upload">

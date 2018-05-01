@@ -5,7 +5,7 @@
         <div class="row ">
             <div class="">
                 <div class="edit_profile">
-                    <a href="{{route('admin.matchmaker.edit',$user->id)}}">EDIT PROFILE</a>
+                    <a href="{{route('matchmaker.edit',$user->id)}}">EDIT PROFILE</a>
                 </div>
 
                 <div class="mm_image">
