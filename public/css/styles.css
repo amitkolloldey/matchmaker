@@ -1001,6 +1001,15 @@ a.share-btn {
     font-size: 20px;
 }
 
+.la-btn2 button {
+    background:  none;
+    color:  #fff;
+    border: none;
+    display:  block;
+    width:  100%;
+    cursor: pointer;
+
+
 .dropzone {
     text-align: center;
     border: 1px solid #FC016E;

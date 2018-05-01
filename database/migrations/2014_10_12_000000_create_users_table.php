@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->longText('other')->nullable();
             $table->boolean('status')->default(false);
             $table->boolean('public_visibility')->default(false);
-            $table->integer('role_id')->unsigned()->index()->default(1);
+            $table->integer('role_id')->unsigned()->index()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
