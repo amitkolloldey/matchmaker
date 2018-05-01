@@ -22,6 +22,7 @@ class MatchMaker extends Controller {
 	 */
 	public function create() {
 		return view( 'front.matchmaker' );
+
 	}
 
 	/**
@@ -48,10 +49,9 @@ class MatchMaker extends Controller {
 				'password' => $password
 			] );
 			if ( $create ) {
-				return "ok";
+				return redirect( route( 'matchmaker.profile', $create->id ) );
 			} else {
-
-				return $data;
+				return redirect( route( 'matchmaker.create' ) );
 			}
 		}
 	}
@@ -99,29 +99,29 @@ class MatchMaker extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function update( Request $request, $id ) {
-		$data               = $request->all();
-		$mm_user            = \App\MatchMaker::findOrFail( $id );
+		$data    = $request->all();
+		$mm_user = \App\MatchMaker::findOrFail( $id );
 
-		$name               = $data['name'];
-		$email              = $data['email'];
-		$image              = $data['thumb'];
-		$password_1         = $data['password_1'];
-		$password_2         = $data['password_2'];
+		$name       = $data['name'];
+		$email      = $data['email'];
+		$image      = $data['thumb'];
+		$password_1 = $data['password_1'];
+		$password_2 = $data['password_2'];
 
 		$arrayData          = array();
 		$arrayData['name']  = $name;
 		$arrayData['email'] = $email;
-		if ( isset( $image ) ) {
+		if ( ! is_null( $image ) ) {
 			$arrayData['image'] = $image;
 		}
-		if ( isset( $password_1 ) && isset( $password_2 ) ) {
+		if ( ! is_null( $password_1 ) && ! is_null( $password_2 ) ) {
 			$arrayData['password'] = $password_1;
 		}
 
 		$mm_user->update( $arrayData );
 
 
-		return redirect( route( 'admin.matchmaker.show', $id ) );
+		return redirect( route( 'matchmaker.profile', $id ) );
 	}
 
 	/**
