@@ -1002,13 +1002,14 @@ a.share-btn {
 }
 
 .la-btn2 button {
-    background:  none;
-    color:  #fff;
+    background: none;
+    color: #fff;
     border: none;
-    display:  block;
-    width:  100%;
+    display: block;
+    width: 100%;
     cursor: pointer;
 
+}
 
 .dropzone {
     text-align: center;
@@ -1033,6 +1034,7 @@ a.share-btn {
     max-height: 200px;
     max-width: 300px;
     width: auto;
+    height: auto;
 }
 
 .edit_profile {
@@ -1075,4 +1077,17 @@ a.share-btn {
 
 .sin_user:hover {
     cursor: pointer;
+}
+
+.gender_radio > * {
+    color: white;
+}
+
+.age_group > * {
+    color: white;
+    font-size: 1em;
+    width: auto;
+    height: auto;
+    margin: auto;
+    padding: auto;
 }
