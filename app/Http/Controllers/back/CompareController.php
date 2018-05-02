@@ -2,41 +2,56 @@
 
 namespace App\Http\Controllers\back;
 
+use App\MatchedProfile;
 use App\RequestMachMaker;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CompareController extends Controller {
 
-	public function compareTo( $id, $compare_id = null ) {
-		$findUser = RequestMachMaker::where( 'user_id', $id )->first();
+	public function compareTo( $id ) {
 
-		if ( $findUser ) {
-			$user  = User::findOrFail( $id );
-			$users = User::all()->sortByDesc( "id" );
-			if ( ! is_null( $compare_id ) ) {
-				$compareUser = User::findOrFail( $compare_id );
-			} else {
-				$compareUser = null;
-			}
+		$user  = User::findOrFail( $id );
+		$users = User::all()->sortByDesc( "id" );
 
-			return view( 'front.compare' )
-				->with( 'users', $users )
-				->with( 'compareUser', $compareUser )
-				->with( 'user', $user );
-		}
+		return view( 'front.compare' )
+			->with( 'users', $users )
+			->with( 'user', $user );
 	}
 
 	public function getUsers( Request $request ) {
-		$users = User::all('id','name','age','gender','image')->sortByDesc( 'id' );
+		$users = User::all( 'id', 'name', 'age', 'gender', 'image' )->sortByDesc( 'id' );
 
 		return $users->toJson( JSON_PRETTY_PRINT );
 	}
 
 	public function getUser( Request $request ) {
-		$users = User::all('name','age','gender','image')->sortByDesc( 'id' );
 
-		return $users->toJson( JSON_PRETTY_PRINT );
+		$data = $request->all();
+		$user = User::findOrFail( $data['id'] );
+
+		return $user->toJson( JSON_PRETTY_PRINT );
+	}
+
+	public function matched( Request $request ) {
+		$data = $request->all();
+		if ( Auth::check() ) {
+			//get matchmaker id
+			$req_id     = $data['profile_1'];
+			$mac_id     = $data['profile_2'];
+			$mac_mat_id = Auth::user()->id;
+			$create     = MatchedProfile::create( [
+				'req_profile' => $req_id,
+				'mac_profile' => $mac_id,
+				'match_maker' => $mac_mat_id
+			] );
+
+			return redirect( route( '/' ) );
+		} else {
+			return redirect( route( '/' ) );
+		}
+
 	}
 }
