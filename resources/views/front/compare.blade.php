@@ -90,13 +90,13 @@
                     <div class="age_group">
                         <label for="selectAgeGroupFrom">Age Group</label>
                         <select id="selectAgeGroupFrom">
-                            @for($i = 18;$i<70;$i++)
+                            @for($i = 18;$i<=70;$i++)
                                 <option>{{$i}}</option>
                             @endfor
                         </select>
                         <label for="selectAgeGroupTo">To</label>
                         <select id="selectAgeGroupTo">
-                            @for($i = 18;$i<70;$i++)
+                            @for($i = 18;$i<=70;$i++)
                                 <option>{{$i}}</option>
                             @endfor
                         </select>
@@ -115,6 +115,7 @@
         $(document).ready(function () {
             var url = "{!! route('matchmaker.users') !!}";
             var users = $("#users");
+            var selectedUserId = "{!! $user->id; !!}";
             var dataJSON = '';
             $.post(url,
                 {
@@ -131,7 +132,9 @@
                             var name = item.name;
                             var age = item.age;
                             var gender = item.gender;
-
+                            if (id == selectedUserId) {
+                                return;
+                            }
                             var singleDiv = "";
                             var row_1_start = '<div class="row sin_user" onclick="selectedUser(' + id + ')">';
                             var row_2_start = '<div class="row com_view">';
@@ -210,7 +213,9 @@
                     var name = item.name;
                     var age = item.age;
                     var gender = item.gender;
-
+                    if (id == selectedUserId) {
+                        return;
+                    }
                     if (gender.toUpperCase() == genderC.toUpperCase() && age >= ageFrom && age <= ageTo) {
                         var singleDiv = "";
                         var row_1_start = '<div class="row sin_user" onclick="selectedUser(' + id + ')">';
