@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class MatchMaker extends Authenticatable {
 	use Notifiable;
-	protected $guard = 'match_maker';
+	protected $guarded = 'match_maker';
 
 	protected $table = 'match_makers';
 	protected $fillable = [
