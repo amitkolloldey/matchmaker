@@ -17,39 +17,44 @@ Route::get( '/user/activate/{token}', 'front\HomeController@activateuser' )->nam
 
 
 //parvez route start
-Route::get( '/matchmaker/create', 'back\MatchMaker@create' )->name( 'matchmaker.create' );
-Route::post( '/matchmaker/store', 'back\MatchMaker@store' )->name( 'matchmaker.store' );
-Route::get( '/matchmaker/profile/{id}', 'back\MatchMaker@show' )->name( 'matchmaker.profile' );
-Route::get( '/matchmaker/edit/{id}', 'back\MatchMaker@edit' )->name( 'matchmaker.edit' );
-Route::post( '/matchmaker/update/{id}', 'back\MatchMaker@update' )->name( 'matchmaker.update' );
+Route::prefix( 'matchmaker' )->group( function () {
+	Route::get( '/login', 'Auth\MatchMakerLoginController@showLoginForm' )->name( 'matchmaker.login' );
+	Route::post( '/loginCheck', 'Auth\MatchMakerLoginController@login' )->name( 'matchmaker.login.check' );
+	Route::get( '/create', 'back\MatchMaker@create' )->name( 'matchmaker.create' );
+	Route::post( '/store', 'back\MatchMaker@store' )->name( 'matchmaker.store' );
+	Route::get( '/profile/{id}', 'back\MatchMaker@show' )->name( 'matchmaker.profile' );
+	Route::get( '/edit/{id}', 'back\MatchMaker@edit' )->name( 'matchmaker.edit' );
+	Route::post( '/update/{id}', 'back\MatchMaker@update' )->name( 'matchmaker.update' );
 //Route::get( '/matchmaker/compare/{id}/{compare_id?}', 'back\CompareController@compareTo' )->name( 'matchmaker.compare' );
-Route::get( '/matchmaker/compare/{id}', 'back\CompareController@compareTo' )->name( 'matchmaker.compare' );
-Route::post( '/matchmaker/getusers', 'back\CompareController@getUsers' )->name( 'matchmaker.users' );
-Route::post( '/matchmaker/matched', 'back\CompareController@matched' )->name( 'matchmaker.matched' );
-Route::post( '/matchmaker/getuser', 'back\CompareController@getUser' )->name( 'matchmaker.user' );
+	Route::get( '/compare/{id}', 'back\CompareController@compareTo' )->name( 'matchmaker.compare' );
+	Route::post( '/getusers', 'back\CompareController@getUsers' )->name( 'matchmaker.users' );
+	Route::post( '/matched', 'back\CompareController@matched' )->name( 'matchmaker.matched' );
+	Route::post( '/getuser', 'back\CompareController@getUser' )->name( 'matchmaker.user' );
+} );
+
 Route::post( '/image/upload', 'UploadImage@uploadThumb' )->name( 'image.upload' );
 //Route::get( '/admin/matchmaker/request/{id}', 'back\MatchMaker@requestMatching' )->name( 'admin.matchmaker.request' );
 //parvez route end
 
-Route::group(['middleware' => 'userauth'], function () {
-    Route::get('/profile/{id}', 'front\UserProfileController@profile')->name('user.profile');
-    Route::post('/profile/update/{id}', 'front\UserProfileController@update')->name('user.profile.update');
-    Route::get('/profile/show/{id}', 'front\UserProfileController@show')->name('user.profile.show');
-    Route::post('/profile/image/{id}', 'front\UserProfileController@profileimage')->name('profile.image.post');
-    Route::get('/profile/user/changepassword/{id}', 'front\UserProfileController@passwordchangeform')->name('password.change');
-    Route::post('/profile/password/{id}', 'front\UserProfileController@passwordchange')->name('profile.password.change');
-    Route::get('/profile/public/share/{id}', 'front\UserProfileController@shareprofile')->name('profile.share');
-});
+Route::group( [ 'middleware' => 'userauth' ], function () {
+	Route::get( '/profile/{id}', 'front\UserProfileController@profile' )->name( 'user.profile' );
+	Route::post( '/profile/update/{id}', 'front\UserProfileController@update' )->name( 'user.profile.update' );
+	Route::get( '/profile/show/{id}', 'front\UserProfileController@show' )->name( 'user.profile.show' );
+	Route::post( '/profile/image/{id}', 'front\UserProfileController@profileimage' )->name( 'profile.image.post' );
+	Route::get( '/profile/user/changepassword/{id}', 'front\UserProfileController@passwordchangeform' )->name( 'password.change' );
+	Route::post( '/profile/password/{id}', 'front\UserProfileController@passwordchange' )->name( 'profile.password.change' );
+	Route::get( '/profile/public/share/{id}', 'front\UserProfileController@shareprofile' )->name( 'profile.share' );
+} );
 
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('admin/login', 'admin\AdminHomeController@login')->name('admin.login');
-});
+Route::group( [ 'middleware' => 'guest' ], function () {
+	Route::get( 'admin/login', 'admin\AdminHomeController@login' )->name( 'admin.login' );
+} );
 
-Route::group(['middleware' => 'adminauth'], function () {
-    Route::get('admin/dashboard', 'admin\AdminHomeController@index')->name('admin.home');
-    Route::resource('/admin/roles','admin\AdminRolesController');
-    Route::resource('/admin/users','admin\AdminUsersController');
-});
+Route::group( [ 'middleware' => 'adminauth' ], function () {
+	Route::get( 'admin/dashboard', 'admin\AdminHomeController@index' )->name( 'admin.home' );
+	Route::resource( '/admin/roles', 'admin\AdminRolesController' );
+	Route::resource( '/admin/users', 'admin\AdminUsersController' );
+} );
 
 
 Route::group( [ 'prefix' => 'user' ], function () {
