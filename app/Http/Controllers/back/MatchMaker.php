@@ -4,15 +4,22 @@ namespace App\Http\Controllers\back;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class MatchMaker extends Controller {
+
+	public function __construct() {
+		$this->middleware( 'auth:matchmaker' );
+	}
+
+
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		return view( 'front.matchmaker_login' );
+		//return view( 'front.matchmaker_login' );
 	}
 
 	/**
@@ -22,7 +29,6 @@ class MatchMaker extends Controller {
 	 */
 	public function create() {
 		return view( 'front.matchmaker' );
-
 	}
 
 	/**
@@ -133,13 +139,5 @@ class MatchMaker extends Controller {
 	 */
 	public function destroy( $id ) {
 		//
-	}
-
-	public function login( Request $request ) {
-		$data     = $request->all();
-		$findUser = \App\MatchMaker::where( 'email', $data['email'] )->limit( 1 )->get();
-		if (!is_null($findUser)){
-			return $findUser;
-		}
 	}
 }

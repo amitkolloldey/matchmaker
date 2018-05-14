@@ -17,18 +17,21 @@ Route::get( '/user/activate/{token}', 'front\HomeController@activateuser' )->nam
 
 
 //parvez route start
-Route::get( '/matchmaker/login', 'back\MatchMaker@index' )->name( 'matchmaker.login' );
-Route::post( '/matchmaker/loginCheck', 'back\MatchMaker@login' )->name( 'matchmaker.login.check' );
-Route::get( '/matchmaker/create', 'back\MatchMaker@create' )->name( 'matchmaker.create' );
-Route::post( '/matchmaker/store', 'back\MatchMaker@store' )->name( 'matchmaker.store' );
-Route::get( '/matchmaker/profile/{id}', 'back\MatchMaker@show' )->name( 'matchmaker.profile' );
-Route::get( '/matchmaker/edit/{id}', 'back\MatchMaker@edit' )->name( 'matchmaker.edit' );
-Route::post( '/matchmaker/update/{id}', 'back\MatchMaker@update' )->name( 'matchmaker.update' );
+Route::prefix( 'matchmaker' )->group( function () {
+	Route::get( '/login', 'Auth\MatchMakerLoginController@showLoginForm' )->name( 'matchmaker.login' );
+	Route::post( '/loginCheck', 'Auth\MatchMakerLoginController@login' )->name( 'matchmaker.login.check' );
+	Route::get( '/create', 'back\MatchMaker@create' )->name( 'matchmaker.create' );
+	Route::post( '/store', 'back\MatchMaker@store' )->name( 'matchmaker.store' );
+	Route::get( '/profile/{id}', 'back\MatchMaker@show' )->name( 'matchmaker.profile' );
+	Route::get( '/edit/{id}', 'back\MatchMaker@edit' )->name( 'matchmaker.edit' );
+	Route::post( '/update/{id}', 'back\MatchMaker@update' )->name( 'matchmaker.update' );
 //Route::get( '/matchmaker/compare/{id}/{compare_id?}', 'back\CompareController@compareTo' )->name( 'matchmaker.compare' );
-Route::get( '/matchmaker/compare/{id}', 'back\CompareController@compareTo' )->name( 'matchmaker.compare' );
-Route::post( '/matchmaker/getusers', 'back\CompareController@getUsers' )->name( 'matchmaker.users' );
-Route::post( '/matchmaker/matched', 'back\CompareController@matched' )->name( 'matchmaker.matched' );
-Route::post( '/matchmaker/getuser', 'back\CompareController@getUser' )->name( 'matchmaker.user' );
+	Route::get( '/compare/{id}', 'back\CompareController@compareTo' )->name( 'matchmaker.compare' );
+	Route::post( '/getusers', 'back\CompareController@getUsers' )->name( 'matchmaker.users' );
+	Route::post( '/matched', 'back\CompareController@matched' )->name( 'matchmaker.matched' );
+	Route::post( '/getuser', 'back\CompareController@getUser' )->name( 'matchmaker.user' );
+} );
+
 Route::post( '/image/upload', 'UploadImage@uploadThumb' )->name( 'image.upload' );
 //Route::get( '/admin/matchmaker/request/{id}', 'back\MatchMaker@requestMatching' )->name( 'admin.matchmaker.request' );
 //parvez route end

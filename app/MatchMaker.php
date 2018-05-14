@@ -2,9 +2,15 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
 
-class MatchMaker extends Model {
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class MatchMaker extends Authenticatable {
+	use Notifiable;
+	protected $guarded = 'match_maker';
 	protected $table = 'match_makers';
 	protected $fillable = [
 		'name',

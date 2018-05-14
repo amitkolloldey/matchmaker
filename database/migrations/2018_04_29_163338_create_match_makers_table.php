@@ -14,7 +14,7 @@ class CreateMatchMakersTable extends Migration {
 		Schema::create( 'match_makers', function ( Blueprint $table ) {
 			$table->increments( 'id' );
 			$table->string( 'name', 50 );
-			$table->string( 'email', 50 );
+			$table->string( 'email', 50 )->unique();
 			$table->string( 'password', 200 );
 			$table->string( 'image', 200 )->nullable();
 			$table->smallInteger( 'status' );
