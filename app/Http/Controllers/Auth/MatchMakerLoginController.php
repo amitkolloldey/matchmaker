@@ -31,7 +31,7 @@ class MatchMakerLoginController extends Controller {
 			'email'    => $request->email,
 			'password' => $request->password
 		], $request->remember ) ) {
-			return redirect()->intended( route( 'matchmaker.profile' ) );
+			return redirect()->intended( route( 'matchmaker.profile.auth'  ) );
 		}
 
 
@@ -41,6 +41,6 @@ class MatchMakerLoginController extends Controller {
 	public function logout() {
 		Auth::guard( 'matchmaker' )->logout();
 
-		return redirect( '/' );
+		return redirect()->route('matchmaker.login');
 	}
 }

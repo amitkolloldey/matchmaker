@@ -21,12 +21,13 @@
                 </div>
                 <div class="col-md-6 text-right">
                     @guest
-                        <a href="#" >
+                        <a href="#">
                             <div class="la-button-default la-btn2 iam-btn" style="">I am a Matchmaker</div>
                         </a>
                     @else
                         <div class="nav-item dropdown lf_dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -42,8 +43,19 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{--@if ( Auth::guard( "matchmaker" )->check() )--}}
+                                        {{--<form id="logout-form" action="{{ route('matchmaker.logout') }}" method="GET"--}}
+                                              {{--style="display: none;">--}}
+                                            {{--@csrf--}}
+                                        {{--</form>--}}
+                                    {{--@else--}}
+                                        {{--<form id="logout-form" action="{{ route('logout') }}" method="POST"--}}
+                                              {{--style="display: none;">--}}
+                                            {{--@csrf--}}
+                                        {{--</form>--}}
+                                    {{--@endif--}}
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
                                         @csrf
                                     </form>
                                 </div>

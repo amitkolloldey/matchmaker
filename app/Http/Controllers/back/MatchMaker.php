@@ -9,7 +9,7 @@ use Auth;
 class MatchMaker extends Controller {
 
 	public function __construct() {
-		$this->middleware( 'auth:matchmaker' );
+		$this->middleware( 'auth:matchmaker', [ 'except' => [ 'create', 'store' ] ] );
 	}
 
 
@@ -42,17 +42,19 @@ class MatchMaker extends Controller {
 		$data = $request->all();
 
 		if ( $data['password_1'] == $data['password_2'] ) {
-			$name     = $data['name'];
-			$email    = $data['email'];
-			$password = bcrypt( $data['password_1'] );
-			$image    = $data['thumb'];
+			$name           = $data['name'];
+			$email          = $data['email'];
+			$password       = bcrypt( $data['password_1'] );
+			$remember_token = bcrypt( $data['_token'] );
+			$image          = $data['thumb'];
 
 			$create = \App\MatchMaker::create( [
-				'name'     => $name,
-				'email'    => $email,
-				'status'   => 0,
-				'image'    => $image,
-				'password' => $password
+				'name'           => $name,
+				'email'          => $email,
+				'status'         => 0,
+				'image'          => $image,
+				'password'       => $password,
+				'remember_token' => $remember_token
 			] );
 			if ( $create ) {
 				return redirect( route( 'matchmaker.profile', $create->id ) );
@@ -72,6 +74,24 @@ class MatchMaker extends Controller {
 	public function show( $id ) {
 		if ( isset( $id ) ) {
 			$mm_user = \App\MatchMaker::findOrFail( $id );
+
+			return view( 'front.matchmaker_view' )->with( 'user', $mm_user );
+		} else {
+			//redirect to somewhere else
+		}
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int $id
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function showAuth() {
+		$user_id = Auth::user()->id;
+		if ( isset( $user_id ) ) {
+			$mm_user = \App\MatchMaker::findOrFail( $user_id );
 
 			return view( 'front.matchmaker_view' )->with( 'user', $mm_user );
 		} else {

@@ -41,6 +41,11 @@
                             <input id="login" type="submit" value="Login">
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="la-button-default la-btn2 iam-btn" style="">
+                            <a href="{{route('matchmaker.create')}}">Create Profile</a>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

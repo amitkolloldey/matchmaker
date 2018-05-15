@@ -19,10 +19,12 @@ Route::get( '/user/activate/{token}', 'front\HomeController@activateuser' )->nam
 //parvez route start
 Route::prefix( 'matchmaker' )->group( function () {
 	Route::get( '/login', 'Auth\MatchMakerLoginController@showLoginForm' )->name( 'matchmaker.login' );
+	//Route::get( '/logout', 'Auth\MatchMakerLoginController@logout' )->name( 'matchmaker.logout' );
 	Route::post( '/loginCheck', 'Auth\MatchMakerLoginController@login' )->name( 'matchmaker.login.check' );
 	Route::get( '/create', 'back\MatchMaker@create' )->name( 'matchmaker.create' );
 	Route::post( '/store', 'back\MatchMaker@store' )->name( 'matchmaker.store' );
 	Route::get( '/profile/{id}', 'back\MatchMaker@show' )->name( 'matchmaker.profile' );
+	Route::get( '/profile', 'back\MatchMaker@showAuth' )->name( 'matchmaker.profile.auth' );
 	Route::get( '/edit/{id}', 'back\MatchMaker@edit' )->name( 'matchmaker.edit' );
 	Route::post( '/update/{id}', 'back\MatchMaker@update' )->name( 'matchmaker.update' );
 //Route::get( '/matchmaker/compare/{id}/{compare_id?}', 'back\CompareController@compareTo' )->name( 'matchmaker.compare' );

@@ -16,6 +16,7 @@ class CreateMatchMakersTable extends Migration {
 			$table->string( 'name', 50 );
 			$table->string( 'email', 50 )->unique();
 			$table->string( 'password', 200 );
+			$table->string( 'remember_token', 250 );
 			$table->string( 'image', 200 )->nullable();
 			$table->smallInteger( 'status' );
 			$table->timestamps();
