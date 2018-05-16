@@ -19,7 +19,7 @@ class RedirectIfAuthenticated {
 		switch ( $guard ) {
 			case 'matchmaker':
 				if ( Auth::guard( $guard )->check() ) {
-					return redirect( route( 'matchmaker.create') );
+					return redirect()->route( 'matchmaker.profile.auth' );
 				}
 				break;
 			default:

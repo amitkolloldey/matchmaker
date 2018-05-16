@@ -10,7 +10,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class CompareController extends Controller {
-
+	public function __construct() {
+		$this->middleware( 'auth:matchmaker');
+	}
 	public function compareTo( $id ) {
 
 		$user  = User::findOrFail( $id );
