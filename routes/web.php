@@ -32,6 +32,12 @@ Route::prefix( 'matchmaker' )->group( function () {
 	Route::post( '/getusers', 'back\CompareController@getUsers' )->name( 'matchmaker.users' );
 	Route::post( '/matched', 'back\CompareController@matched' )->name( 'matchmaker.matched' );
 	Route::post( '/getuser', 'back\CompareController@getUser' )->name( 'matchmaker.user' );
+
+	// Password reset routes
+	Route::post('/password/email', 'Auth\MatchMakerForgotPasswordController@sendResetLinkEmail')->name('matchmaker.password.email');
+	Route::get('/password/reset', 'Auth\MatchMakerForgotPasswordController@showLinkRequestForm')->name('matchmaker.password.request');
+	Route::post('/password/reset', 'Auth\MatchMakerResetPasswordController@reset');
+	Route::get('/password/reset/{token}', 'Auth\MatchMakerResetPasswordController@showResetForm')->name('matchmaker.password.reset');
 } );
 
 Route::post( '/image/upload', 'UploadImage@uploadThumb' )->name( 'image.upload' );

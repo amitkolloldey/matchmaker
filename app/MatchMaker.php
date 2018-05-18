@@ -3,6 +3,7 @@
 namespace App;
 
 
+use App\Notifications\MatchMakerResetPasswordNotification;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Notifications\Notifiable;
@@ -26,6 +27,11 @@ class MatchMaker extends Authenticatable {
 	 * @var array
 	 */
 	protected $hidden = [
-		'password'
+		'password',
+		'remember_token',
 	];
+
+	public function sendPasswordResetNotification( $token ) {
+		$this->notify( new MatchMakerResetPasswordNotification( $token ) );
+	}
 }

@@ -40,6 +40,9 @@
                         <div class="la-button-default la-btn2 iam-btn" style="">
                             <input id="login" type="submit" value="Login">
                         </div>
+                        <a class="btn btn-link" href="{{ route('matchmaker.password.request') }}">
+                            {{ __('Forgot Your Password?') }}
+                        </a>
                     </div>
                     <div class="col-md-6">
                         <div class="la-button-default la-btn2 iam-btn" style="">
