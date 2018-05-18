@@ -18,6 +18,7 @@ Route::get( '/user/activate/{token}', 'front\HomeController@activateuser' )->nam
 
 //parvez route start
 Route::prefix( 'matchmaker' )->group( function () {
+	Route::get( '/', 'Auth\MatchMakerLoginController@showLoginForm' )->name( 'matchmaker.login' );
 	Route::get( '/login', 'Auth\MatchMakerLoginController@showLoginForm' )->name( 'matchmaker.login' );
 	//Route::get( '/logout', 'Auth\MatchMakerLoginController@logout' )->name( 'matchmaker.logout' );
 	Route::post( '/loginCheck', 'Auth\MatchMakerLoginController@login' )->name( 'matchmaker.login.check' );
