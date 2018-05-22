@@ -26,33 +26,50 @@
                         </a>
                     @else
                         <div class="nav-item dropdown lf_dropdown">
+
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
+
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                                 <div class="lf_dropdown_item">
-                                    <a class="dropdown-item" href="{{ route('user.profile',Auth::user()->id) }}">
-                                        {{ __('Profile') }}
-                                    </a>
+                                    @if(Auth::guard( 'matchmaker' )->check())
+                                        <a class="dropdown-item"
+                                           href="{{ route('matchmaker.profile',Auth::user()->id) }}">
+                                            {{ __('Profile') }}
+                                        </a>
+                                    @else
+                                        <a class="dropdown-item" href="{{ route('user.profile',Auth::user()->id) }}">
+                                            {{ __('Profile') }}
+                                        </a>
+                                    @endif
                                 </div>
                                 <div class="lf_dropdown_item">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                    @if(Auth::guard( 'matchmaker' )->check())
+                                        <a class="dropdown-item" href="{{ route('matchmaker.logout') }}">
+                                            {{ __('Logout') }}
+                                        </a>
+                                    @else
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                            {{ __('Logout') }}
+                                        </a>
+                                    @endif
+
                                     {{--@if ( Auth::guard( "matchmaker" )->check() )--}}
-                                        {{--<form id="logout-form" action="{{ route('matchmaker.logout') }}" method="GET"--}}
-                                              {{--style="display: none;">--}}
-                                            {{--@csrf--}}
-                                        {{--</form>--}}
+                                    {{--<form id="logout-form" action="{{ route('matchmaker.logout') }}" method="GET"--}}
+                                    {{--style="display: none;">--}}
+                                    {{--@csrf--}}
+                                    {{--</form>--}}
                                     {{--@else--}}
-                                        {{--<form id="logout-form" action="{{ route('logout') }}" method="POST"--}}
-                                              {{--style="display: none;">--}}
-                                            {{--@csrf--}}
-                                        {{--</form>--}}
+                                    {{--<form id="logout-form" action="{{ route('logout') }}" method="POST"--}}
+                                    {{--style="display: none;">--}}
+                                    {{--@csrf--}}
+                                    {{--</form>--}}
                                     {{--@endif--}}
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                           style="display: none;">
@@ -66,3 +83,4 @@
             </div>
         </div>
     </header>
+</div>

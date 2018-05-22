@@ -20,7 +20,7 @@ Route::get( '/user/activate/{token}', 'front\HomeController@activateuser' )->nam
 Route::prefix( 'matchmaker' )->group( function () {
 	Route::get( '/', 'Auth\MatchMakerLoginController@showLoginForm' )->name( 'matchmaker.login' );
 	Route::get( '/login', 'Auth\MatchMakerLoginController@showLoginForm' )->name( 'matchmaker.login' );
-	//Route::get( '/logout', 'Auth\MatchMakerLoginController@logout' )->name( 'matchmaker.logout' );
+	Route::get( '/logout', 'Auth\MatchMakerLoginController@logout' )->name( 'matchmaker.logout' );
 	Route::post( '/loginCheck', 'Auth\MatchMakerLoginController@login' )->name( 'matchmaker.login.check' );
 	Route::get( '/create', 'back\MatchMaker@create' )->name( 'matchmaker.create' );
 	Route::post( '/store', 'back\MatchMaker@store' )->name( 'matchmaker.store' );

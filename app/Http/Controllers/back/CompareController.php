@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class CompareController extends Controller {
 	public function __construct() {
-		$this->middleware( 'auth:matchmaker');
+		$this->middleware( 'auth:matchmaker' );
 	}
+
 	public function compareTo( $id ) {
 
 		$user  = User::findOrFail( $id );
@@ -49,6 +50,12 @@ class CompareController extends Controller {
 				'mac_profile' => $mac_id,
 				'match_maker' => $mac_mat_id
 			] );
+
+			if ( $create ) {
+				//todo  
+				$req_user = User::findOrFail( $req_id );
+				$mac_user = User::findOrFail( $mac_id );
+			}
 
 			return redirect( route( '/' ) );
 		} else {

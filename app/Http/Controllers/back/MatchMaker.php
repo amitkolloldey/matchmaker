@@ -5,7 +5,7 @@ namespace App\Http\Controllers\back;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
-
+use Validator;
 class MatchMaker extends Controller {
 
 	public function __construct() {
@@ -39,13 +39,27 @@ class MatchMaker extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store( Request $request ) {
-		$data = $request->all();
 
+		$validator = Validator::make($request->all(), [
+			'name'       => 'required',
+			'email'      => 'email|unique:match_makers',
+			'password_1' => 'required|min:6',
+			'password_2' => 'required|min:6'
+		] );
+
+		if ( $validator->fails() ) {
+			return redirect()
+				->back()
+				->withErrors( $validator )
+				->withInput($request->only( 'email', 'name' ));
+		}
+
+		$data = $request->all();
 		if ( $data['password_1'] == $data['password_2'] ) {
 			$name           = $data['name'];
 			$email          = $data['email'];
 			$password       = bcrypt( $data['password_1'] );
-			$remember_token = bcrypt( $data['_token'] );
+			$remember_token = $data['_token'];
 			$image          = $data['thumb'];
 
 			$create = \App\MatchMaker::create( [
@@ -56,10 +70,11 @@ class MatchMaker extends Controller {
 				'password'       => $password,
 				'remember_token' => $remember_token
 			] );
+
 			if ( $create ) {
 				return redirect( route( 'matchmaker.profile', $create->id ) );
 			} else {
-				return redirect( route( 'matchmaker.create' ) );
+				return redirect()->back()->withInput( $request->only( 'email', 'name' ) );
 			}
 		}
 	}

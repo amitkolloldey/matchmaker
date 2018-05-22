@@ -1091,3 +1091,7 @@ a.share-btn {
     margin: auto;
     padding: auto;
 }
+
+.error {
+    color: red;
+}

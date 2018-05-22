@@ -24,13 +24,33 @@
                     <input hidden value="{{ csrf_token() }}" name="_token" type="text">
                     <div class="lf_form_input col-md-12">
                         <label for="name">Name (Required*)</label>
-                        <input type="text" name="name" placeholder="Enter your Name" required><span
+                        <input type="text" name="name" placeholder="Enter your Name" value="{{ old('name') }}" required><span
                                 class="err_name"></span>
+                        @if ($errors->has('name'))
+                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
+
                     </div>
                     <div class="lf_form_input col-md-12">
                         <label for="email">Email (Required*)</label>
-                        <input type="email" name="email" placeholder="Enter your Email" required><span
+                        <input type="email" name="email" placeholder="Enter your Email" value="{{ old('email') }}" required><span
                                 class="err_email"></span>
+                        @if ($errors->has('email'))
+                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
+                        <div class="row">
+                            <div class="col-md-12 error">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="lf_form_input col-md-12">
                         <label for="password">Password (Required*)</label>
