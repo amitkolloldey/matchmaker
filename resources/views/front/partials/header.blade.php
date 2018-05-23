@@ -34,9 +34,12 @@
 
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
+                                @php
+                                    $namePrefix = \Route::current()->action['prefix'];
+                                //var_dump($namePrefix);
+                                @endphp
                                 <div class="lf_dropdown_item">
-                                    @if(Auth::guard( 'matchmaker' )->check())
+                                    @if(Auth::guard( 'matchmaker' )->check() && $namePrefix=='/matchmaker')
                                         <a class="dropdown-item"
                                            href="{{ route('matchmaker.profile',Auth::user()->id) }}">
                                             {{ __('Profile') }}
